@@ -1,3 +1,3 @@
 # ReactJS 
 
-ReactJS Tutorial (Udemy)
+ReactJS Tutorial
