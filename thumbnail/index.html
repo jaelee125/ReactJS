@@ -1,54 +1,47 @@
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <script src="http://fb.me/react-0.13.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.13.0.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-5 target">
-			</div>
-		</div>
-	</div>
+  <div class="container">
+  </div>
 </body>
 
 <script type="text/jsx">
- //Define a 'class'
-	var Badge = React.createClass({
- 		render: function() {
- 			return <button className="btn btn-primary" type="button">
-  				{this.props.title} <span className="badge">{this.props.number}</span>
-			</button>
- 		}
- 	});
+  var Badge = React.createClass({
+    render: function() {
+      return <button className="btn btn-primary" type="button">
+        {this.props.title} <span className="badge">{this.props.number}</span>
+      </button>
+    }
+  });
 
- 	var Thumbnail = React.createClass({
- 		render: function() {
- 			return <div className="thumbnail">
-      	<img src={this.props.imageURL} />
-      	<div className="caption">
-        	<h3>{this.props.header}</h3>
-        	<p>{this.props.description}</p>
-        	<p>
-        		<Badge title={this.props.title} number={this.props.number}/>
-        	</p>
-      	</div>
-    	</div>
- 		}
- 	});
+  var Thumbnail = React.createClass({
+    render: function() {
+      return <div className="col-sm-6 col-md-4">
+        <div className="thumbnail">
+          <img src={this.props.imageUrl} alt="..."></img>
+          <div className="caption">
+            <h3>{this.props.header}</h3>
+            <p>{this.props.description}</p>
+            <p>
+              <Badge title={this.props.title} number={this.props.number} />
+            </p>
+          </div>
+        </div>
+      </div>
+    }
+  });
 
-	 var options = {
-	 	title: 'See Tutorials',
-	 	number: 32,
-	 	header: 'Learn React',
-	 	description: 'React is fantastic new library for making fast dynamic page. React is fantastic new library for making fast dynamic page.',
-	 	imageURL: 'https://cdn.auth0.com/blog/react-js/react.png'
-	 };
+  var options = {
+    title: 'Show Courses',
+    number: 12,
+    header: 'Learn React',
+    description: 'React is a fantastic new front end library for rendering web pages. React is a fantastic new front end library for rendering web pages.',
+    imageUrl: 'https://raw.githubusercontent.com/wiki/facebook/react/react-logo-1000-transparent.png'
+  };
 
-	 //React, please render this class
-	 var element = React.createElement(Thumbnail, options);
-
-	 //React, after you render this class, please place it in my body tag
-	 React.render(element, document.querySelector('.target'));
+  var element = React.createElement(Thumbnail, options);
+  React.render(element, document.querySelector('.container'));
 </script>
